@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibrahim ❤️ Imama</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #f8eee9, #ead9d0);
+      overflow: hidden;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 430px;
+      padding: 45px 25px;
+      text-align: center;
+      background: rgba(255,255,255,0.75);
+      border-radius: 25px;
+      box-shadow: 0 15px 50px rgba(70,40,30,0.18);
+      backdrop-filter: blur(10px);
+    }
+
+    .heart {
+      font-size: 55px;
+      animation: beat 1.3s infinite;
+    }
+
+    @keyframes beat {
+      50% { transform: scale(1.12); }
+    }
+
+    h1 {
+      color: #513c35;
+      font-size: 32px;
+      margin: 15px 0 8px;
+    }
+
+    .question {
+      color: #66534b;
+      font-size: 20px;
+      line-height: 1.5;
+      margin: 25px 0;
+    }
+
+    .buttons {
+      position: relative;
+      height: 90px;
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 14px 28px;
+      font-size: 17px;
+      cursor: pointer;
+      font-family: Georgia, serif;
+    }
+
+    #yes {
+      background: #5b4036;
+      color: white;
+      box-shadow: 0 7px 18px rgba(70,40,30,0.25);
+    }
+
+    #no {
+      position: absolute;
+      background: #eee3de;
+      color: #5b4036;
+      left: 55%;
+      top: 0;
+    }
+
+    .details {
+      display: none;
+      margin-top: 25px;
+      animation: appear 1s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .details h2 {
+      color: #513c35;
+    }
+
+    .details p {
+      color: #66534b;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .small {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #89756c;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="heart">🤎</div>
+
+    <h1>Imama ✨</h1>
+
+    <div class="question">
+      I have a little question for you...<br><br>
+      <strong>Will you go on a date with me? 🌹</strong>
+    </div>
+
+    <div class="buttons">
+      <button id="yes">YES ❤️</button>
+      <button id="no">NO 🙈</button>
+    </div>
+
+    <div class="details" id="details">
+      <h2>It's a Date! 🥰</h2>
+
+      <p>
+        Ibrahim ❤️ Imama<br><br>
+        📅 16 October<br>
+        🕟 4:30 PM<br>
+        📍 Belthra Road
+      </p>
+
+      <div class="small">
+        Looking forward to seeing you ✨
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const details = document.getElementById("details");
+
+    function moveNoButton() {
+      const card = document.querySelector(".card");
+      const maxX = card.clientWidth - noButton.offsetWidth - 20;
+      const maxY = 70;
+
+      const x = Math.random() * Math.max(maxX, 20);
+      const y = Math.random() * maxY;
+
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+    }
+
+    // Mobile + desktop
+    noButton.addEventListener("click", moveNoButton);
+    noButton.addEventListener("touchstart", moveNoButton);
+
+    yesButton.addEventListener("click", function() {
+      details.style.display = "block";
+      document.querySelector(".question").innerHTML =
+        "You just made my day! ❤️";
+      
+      document.querySelector(".buttons").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
